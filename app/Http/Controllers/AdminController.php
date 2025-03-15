@@ -12,10 +12,26 @@ class AdminController extends Controller
     {
         $user->isAdmin();
     }
-
     public function index()
     {
         return view('admin.dashboard');
+    }
+    public function students()
+    {
+        $students = User::where('role', 'Student')->get();
+        return view('admin.students', compact('students'));
+    }
+    public function subjects()
+    {
+        return view('admin.subjects');
+    }
+    public function enrollment()
+    {
+        return view('admin.enrollment');
+    }
+    public function grades()
+    {
+        return view('admin.grades');
     }
 }
 
