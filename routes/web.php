@@ -19,7 +19,16 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::prefix('/admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
-        Route::get('/students', [AdminController::class, 'students'])->name('admin.students');
+
+        // STUDENTS
+        Route::prefix('/students')->group(function() {
+            Route::get('/', [AdminController::class, 'students'])->name('admin.students');
+            Route::post('/store', [AdminController::class, 'storeOrUpdate'])->name('admin.students.store');
+            Route::put('/update/{id}', [AdminController::class, 'storeOrUpdate'])->name('admin.students.update');
+            Route::delete('/{id}', [AdminController::class, 'deleteStudent'])->name('admin.students.delete');
+        });
+        
+
         Route::get('/subjects', [AdminController::class, 'subjects'])->name('admin.subjects');
         Route::get('/enrollment', [AdminController::class, 'enrollment'])->name('admin.enrollment');
         Route::get('/grades', [AdminController::class, 'grades'])->name('admin.grades');

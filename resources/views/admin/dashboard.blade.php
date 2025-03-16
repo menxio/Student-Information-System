@@ -17,7 +17,7 @@
                     <div class="card text-white bg-primary mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Total Students</h5>
-                            {{-- <p class="card-text">{{ $totalStudents }}</p> --}}
+                            <p class="card-text">{{ $totalStudents }}</p>
                         </div>
                     </div>
                 </div>

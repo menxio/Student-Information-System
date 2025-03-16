@@ -19,10 +19,13 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'middle_name',
+        'last_name',
         'email',
         'password',
-        'role'
+        'role',
+        'student_id',
     ];
 
     /**
@@ -50,7 +53,13 @@ class User extends Authenticatable
 
     public function isAdmin() : bool
     {
-        return $this->role === 'Admin';
+        return $this->role === 'admin';
     }
+
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
+
 
 }

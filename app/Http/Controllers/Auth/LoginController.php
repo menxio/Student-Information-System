@@ -45,4 +45,10 @@ class LoginController extends Controller
         // Otherwise, redirect to home.
         return redirect()->intended('/home');
     }
+
+    // public function username()
+    // {
+    //     return 'student_id'; // Change default login field from email to student_id
+    // }
+
 }
